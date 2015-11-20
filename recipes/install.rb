@@ -21,10 +21,19 @@ node['topbeat']['packages'].each do |p|
   package p
 end
 
-package_file = ::File.join(Chef::Config[:file_cache_path], ::File.basename(node['topbeat']['package_url']))
+if node['topbeat']['package_url'] == 'auto'
+  package_url = value_for_platform_family(
+    'debian' => "https://download.elasticsearch.org/beats/topbeat/topbeat_#{node['topbeat']['version']}_amd64.deb",
+    %w(rhel fedora) => "https://download.elasticsearch.org/beats/topbeat/topbeat-#{node['topbeat']['version']}-x86_64.rpm"
+  )
+else
+  package_url = node['topbeat']['package_url']
+end
+
+package_file = ::File.join(Chef::Config[:file_cache_path], ::File.basename(package_url))
 
 remote_file package_file do
-  source node['topbeat']['package_url']
+  source package_url
   not_if { ::File.exist?(package_file) }
 end
 
