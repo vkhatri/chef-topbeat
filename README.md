@@ -6,6 +6,8 @@ topbeat Cookbook
 This is a [Chef] cookbook to manage [Topbeat].
 
 
+>> For Production environment, always prefer the [most recent release](https://supermarket.chef.io/cookbooks/topbeat).
+
 ## Repository
 
 https://github.com/vkhatri/chef-topbeat
