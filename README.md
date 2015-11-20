@@ -30,7 +30,7 @@ This cookbook was tested on Amazon and expected to work on other RHEL platforms.
 
 * `default['topbeat']['version']` (default: `1.0.0-beta3`): topbeat version
 
-* `default['topbeat']['package_url']` (default: `calculated`): package download url
+* `default['topbeat']['package_url']` (default: `auto`): package download url
 
 * `default['topbeat']['packages']` (default: `[]`): package dependencies
 
@@ -49,26 +49,7 @@ This cookbook was tested on Amazon and expected to work on other RHEL platforms.
 
 * `default['topbeat']['config']['input']['period']` (default: `10`): topbeat procs to collect statistics
 
-* `default['topbeat']['config']['output']['elasticsearch']['enabled']` (default: `true`):
-
-* `default['topbeat']['config']['output']['elasticsearch']['hosts']` (default: `[]`):: `false`):
-
-* `default['topbeat']['config']['output']['redis']['enabled']` (default: `false`):
-
-* `default['topbeat']['config']['output']['redis']['host']` (default: `127.0.0.1`):
-
-* `default['topbeat']['config']['output']['redis']['port']` (default: `6379`):
-
-* `default['topbeat']['config']['output']['file']['enabled']` (default: `false`):
-
-* `default['topbeat']['config']['output']['file']['path']` (default: `/tmp/topbeat`):
-
-* `default['topbeat']['config']['output']['file']['filename']` (default: `topbeat`):
-
-* `default['topbeat']['config']['output']['file']['rotate_every_kb']` (default: `1000`):
-
-* `default['topbeat']['config']['output']['file']['number_of_files']` (default: `7`):
-
+* `default['topbeat']['config']['output']` (default: `{}`):
 
 For more attribute info, visit below link:
 
