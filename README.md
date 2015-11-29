@@ -1,12 +1,25 @@
 topbeat Cookbook
 ================
 
-[![Build Status](https://travis-ci.org/vkhatri/chef-topbeat.svg?branch=master)](https://travis-ci.org/vkhatri/chef-topbeat)
+[![Cookbook](http://img.shields.io/badge/cookbook-v0.1.1-green.svg)](https://github.com/vkhatri/chef-topbeat)[![Build Status](https://travis-ci.org/vkhatri/chef-topbeat.svg?branch=master)](https://travis-ci.org/vkhatri/chef-topbeat)
 
 This is a [Chef] cookbook to manage [Topbeat].
 
 
 >> For Production environment, always prefer the [most recent release](https://supermarket.chef.io/cookbooks/topbeat).
+
+
+## Most Recent Release
+
+```
+cookbook 'topbeat', '~> 0.1.1'
+```
+
+## From Git
+
+```
+cookbook 'topbeat', github: 'vkhatri/chef-topbeat'
+
 
 ## Repository
 
@@ -15,7 +28,7 @@ https://github.com/vkhatri/chef-topbeat
 
 ## Supported OS
 
-This cookbook was tested on Amazon and expected to work on other RHEL platforms. Cookbook is expected to work on Ubuntu, but have not tested yet.
+This cookbook was tested on Amazon & Ubuntu Linux and expected to work on other RHEL platforms.
 
 
 ## Recipes
@@ -49,7 +62,7 @@ This cookbook was tested on Amazon and expected to work on other RHEL platforms.
 
 * `default['topbeat']['config']['input']['period']` (default: `10`): topbeat procs to collect statistics
 
-* `default['topbeat']['config']['output']` (default: `{}`):
+* `default['topbeat']['config']['output']` (default: `{}`): topbeat output configuration, e.g. elasticsearch, logstash, file etc.
 
 For more attribute info, visit below link:
 
