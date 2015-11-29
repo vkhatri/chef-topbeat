@@ -3,6 +3,11 @@ topbeat CHANGELOG
 
 This file is used to list changes made in each version of the topbeat cookbook.
 
+0.1.2
+-----
+
+- Virender Khatri - Fixed README typo
+
 0.1.1
 -----
 
