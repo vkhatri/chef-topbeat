@@ -30,9 +30,7 @@ This cookbook was tested on Amazon and expected to work on other RHEL platforms.
 ## Core Attributes
 
 
-* `default['topbeat']['version']` (default: `1.0.0-beta3`): topbeat version
-
-* `default['topbeat']['package_url']` (default: `auto`): package download url
+* `default['topbeat']['version']` (default: `1.0.0`): topbeat version
 
 * `default['topbeat']['packages']` (default: `[]`): package dependencies
 
@@ -56,6 +54,32 @@ This cookbook was tested on Amazon and expected to work on other RHEL platforms.
 For more attribute info, visit below link:
 
 https://github.com/elastic/topbeat/blob/master/etc/topbeat.yml
+
+
+## Topbeat YUM/APT Repository Attributes
+
+* `default['topbeat']['yum']['description']` (default: ``): beats yum reporitory attribute
+
+* `default['topbeat']['yum']['gpgcheck']` (default: `true`): beats yum reporitory attribute
+
+* `default['topbeat']['yum']['enabled']` (default: `true`): beats yum reporitory attribute
+
+* `default['topbeat']['yum']['baseurl']` (default: `https://packages.elastic.co/beats/yum/el/$basearch`): beatsyum reporitory attribute
+
+* `default['topbeat']['yum']['gpgkey']` (default: `https://packages.elasticsearch.org/GPG-KEY-elasticsearch`): beats yum reporitory attribute
+
+* `default['topbeat']['yum']['action']` (default: `:create`): beats yum reporitory attribute
+
+
+* `default['topbeat']['apt']['description']` (default: `calculated`): beats apt reporitory attribute
+
+* `default['topbeat']['apt']['components']` (default: `['stable', 'main']`): beats apt reporitory attribute
+
+* `default['topbeat']['apt']['uri']` (default: `https://packages.elastic.co/beats/apt`): beats apt reporitory attribute
+
+* `default['topbeat']['apt']['key']` (default: `http://packages.elasticsearch.org/GPG-KEY-elasticsearch`): beats apt reporitory attribute
+
+* `default['topbeat']['apt']['action']` (default: `:add`): filebeat apt reporitory attribute
 
 
 ## Contributing

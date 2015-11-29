@@ -21,23 +21,27 @@ node['topbeat']['packages'].each do |p|
   package p
 end
 
-if node['topbeat']['package_url'] == 'auto'
-  package_url = value_for_platform_family(
-    'debian' => "https://download.elasticsearch.org/beats/topbeat/topbeat_#{node['topbeat']['version']}_amd64.deb",
-    %w(rhel fedora) => "https://download.elasticsearch.org/beats/topbeat/topbeat-#{node['topbeat']['version']}-x86_64.rpm"
-  )
-else
-  package_url = node['topbeat']['package_url']
-end
-
-package_file = ::File.join(Chef::Config[:file_cache_path], ::File.basename(package_url))
-
-remote_file package_file do
-  source package_url
-  not_if { ::File.exist?(package_file) }
+case node['platform_family']
+when 'debian'
+  # apt repository configuration
+  apt_repository 'beats' do
+    uri node['topbeat']['apt']['uri']
+    components node['topbeat']['apt']['components']
+    key node['topbeat']['apt']['key']
+    action node['topbeat']['apt']['action']
+  end
+when 'rhel'
+  # yum repository configuration
+  yum_repository 'beats' do
+    description node['topbeat']['yum']['description']
+    baseurl node['topbeat']['yum']['baseurl']
+    gpgcheck node['topbeat']['yum']['gpgcheck']
+    gpgkey node['topbeat']['yum']['gpgkey']
+    enabled node['topbeat']['yum']['enabled']
+    action node['topbeat']['yum']['action']
+  end
 end
 
 package 'topbeat' do
-  source package_file
-  provider Chef::Provider::Package::Dpkg if node['platform_family'] == 'debian'
+  version node['platform_family'] == 'rhel' ? node['topbeat']['version'] + '-1' : node['topbeat']['version']
 end
