@@ -43,7 +43,7 @@ This cookbook was tested on Amazon & Ubuntu Linux and expected to work on other 
 ## Core Attributes
 
 
-* `default['topbeat']['version']` (default: `1.0.0`): topbeat version
+* `default['topbeat']['version']` (default: `1.1.0`): topbeat version
 
 * `default['topbeat']['packages']` (default: `[]`): package dependencies
 
