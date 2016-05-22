@@ -1,4 +1,4 @@
-default['topbeat']['version'] = '1.2.1'
+default['topbeat']['version'] = '1.2.3'
 default['topbeat']['disable_service'] = false
 default['topbeat']['package_url'] = 'auto'
 default['topbeat']['packages'] = []
