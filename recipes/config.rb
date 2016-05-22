@@ -24,6 +24,17 @@ end
 
 service_action = node['topbeat']['disable_service'] ? [:disable, :stop] : [:enable, :start]
 
+powershell_script 'install topbeat as service' do
+  code "#{node['topbeat']['windows']['base_dir']}/topbeat-#{node['topbeat']['version']}-windows/install-service-topbeat.ps1"
+end if node['platform'] == 'windows'
+
+ruby_block 'delay topbeat service start' do
+  block do
+  end
+  notifies :start, 'service[topbeat]'
+  not_if { node['topbeat']['disable_service'] }
+end
+
 service 'topbeat' do
   supports :status => true, :restart => true
   action service_action

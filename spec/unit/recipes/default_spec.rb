@@ -51,4 +51,41 @@ describe 'topbeat::default' do
 
     include_examples 'topbeat'
   end
+
+  context 'windows' do
+    let(:chef_run) do
+      ChefSpec::SoloRunner.new(platform: 'windows', version: '2012') do |node|
+        node.automatic['platform_family'] = 'windows'
+      end.converge(described_recipe)
+    end
+
+    it 'install topbeat package' do
+      expect(chef_run).to run_powershell_script('install topbeat as service')
+    end
+
+    it 'delay service start' do
+      expect(chef_run).to run_ruby_block('delay topbeat service start')
+    end
+
+    it 'download topbeat from web' do
+      expect(chef_run).to create_remote_file('topbeat_package_file')
+    end
+
+    it 'create install directory' do
+      expect(chef_run).to create_directory('C:/opt/topbeat')
+    end
+
+    it 'Unpack zip file' do
+      expect(chef_run).to unzip_windows_zipfile_to('C:/opt/topbeat')
+    end
+
+    it 'configure C:/opt/topbeat/topbeat.yml' do
+      expect(chef_run).to create_file('C:/opt/topbeat/topbeat-1.2.1-windows/topbeat.yml')
+    end
+
+    it 'enable topbeat service' do
+      expect(chef_run).to enable_service('topbeat')
+      expect(chef_run).to start_service('topbeat')
+    end
+  end
 end

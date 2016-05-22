@@ -17,5 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe 'topbeat::install'
+if node['platform'] == 'windows'
+  include_recipe 'topbeat::install_windows'
+else
+  include_recipe 'topbeat::install'
+end
 include_recipe 'topbeat::config'

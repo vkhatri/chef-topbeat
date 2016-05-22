@@ -11,7 +11,9 @@ issues_url 'https://github.com/vkhatri/chef-topbeat/issues' if respond_to?(:issu
 
 depends 'yum'
 depends 'apt'
+depends 'windows'
+depends 'powershell'
 
-%w(ubuntu centos amazon redhat fedora).each do |os|
+%w(ubuntu centos amazon redhat fedora windows).each do |os|
   supports os
 end

@@ -28,16 +28,18 @@ https://github.com/vkhatri/chef-topbeat
 
 ## Supported OS
 
-This cookbook was tested on Amazon & Ubuntu Linux and expected to work on other RHEL platforms.
+This cookbook was tested on Amazon & Ubuntu Linux and expected to work on other RHEL platforms and Windows.
 
 
 ## Recipes
 
 - `topbeat::default` - default recipe (use it for run_list)
 
-- `topbeat::install` - install topbeat
+- `topbeat::install` - install topbeat for rhel, debian, ubuntu based OS
 
 - `topbeat::config` - configure topbeat
+
+- `topbeat::install_windows` - configure topbeat for windows based OS
 
 
 ## Core Attributes
@@ -47,9 +49,9 @@ This cookbook was tested on Amazon & Ubuntu Linux and expected to work on other 
 
 * `default['topbeat']['packages']` (default: `[]`): package dependencies
 
-* `default['topbeat']['conf_dir']` (default: `/etc/topbeat`): topbeat yaml configuration file directory
+* `default['topbeat']['conf_dir']` (default: `/etc/topbeat` or `C:/opt/topbeat/topbeat-1.2.1-windows/`): topbeat yaml configuration file directory
 
-* `default['topbeat']['conf_file']` (default: `/etc/topbeat/topbeat.yml`): topbeat configuration file
+* `default['topbeat']['conf_file']` (default: `/etc/topbeat/topbeat.yml` or `C:/opt/topbeat/topbeat-1.2.1-windows/topbeat.yml`): topbeat configuration file
 
 * `default['topbeat']['notify_restart']` (default: `true`): whether to restart topbeat service on configuration file change
 
