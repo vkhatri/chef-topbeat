@@ -3,6 +3,15 @@ topbeat CHANGELOG
 
 This file is used to list changes made in each version of the topbeat cookbook.
 
+0.1.3
+-----
+
+- Bob - Adding support for windows
+
+- Bob - Add serverpec integration tests for all platforms
+
+- Virender Khatri - Bump beats version to v1.2.3
+
 0.1.2
 -----
 
