@@ -21,6 +21,8 @@ node['topbeat']['packages'].each do |p|
   package p
 end
 
+version_string = node['platform_family'] == 'rhel' ? node['topbeat']['version'] + '-1' : node['topbeat']['version']
+
 case node['platform_family']
 when 'debian'
   # apt repository configuration
@@ -29,7 +31,14 @@ when 'debian'
     components node['topbeat']['apt']['components']
     key node['topbeat']['apt']['key']
     action node['topbeat']['apt']['action']
+    distribution ''
   end
+
+  apt_preference 'topbeat' do
+    pin          "version #{node['topbeat']['version']}"
+    pin_priority '700'
+  end
+
 when 'rhel'
   # yum repository configuration
   yum_repository 'beats' do
@@ -40,8 +49,13 @@ when 'rhel'
     enabled node['topbeat']['yum']['enabled']
     action node['topbeat']['yum']['action']
   end
+
+  package 'yum-versionlock'
+  execute 'yum versionlock clear topbeat'
+  execute "yum versionlock topbeat-#{version_string}"
 end
 
 package 'topbeat' do
-  version node['platform_family'] == 'rhel' ? node['topbeat']['version'] + '-1' : node['topbeat']['version']
+  version version_string
+  options node['platform_family'] == 'rhel' ? '' : '-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"'
 end
