@@ -49,6 +49,10 @@ describe 'topbeat::default' do
       expect(chef_run).to add_apt_repository('beats')
     end
 
+    it 'add beats apt version preference' do
+      expect(chef_run).to add_apt_preference('topbeat')
+    end
+
     include_examples 'topbeat'
   end
 
