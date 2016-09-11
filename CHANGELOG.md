@@ -3,6 +3,19 @@ topbeat CHANGELOG
 
 This file is used to list changes made in each version of the topbeat cookbook.
 
+0.1.5
+-----
+
+- Paul Morton - Support version pinning in deb and yum repos
+
+- Virender Khatri - Updated travis to use ruby v2.2.2
+
+- Virender Khatri - Remove powershell cookbook dependency
+
+- Virender Khatri - Updated topbeat version to v1.3.0
+
+- Virender Khatri - use cookbook yum-plugin-versionlock instead
+
 0.1.3
 -----
 
