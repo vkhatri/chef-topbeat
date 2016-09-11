@@ -21,7 +21,7 @@ node['topbeat']['packages'].each do |p|
   package p
 end
 
-version_string = node['platform_family'] == 'rhel' ? node['topbeat']['version'] + '-1' : node['topbeat']['version']
+version_string = node['platform_family'] == 'rhel' ? "#{node['topbeat']['version']}-#{node['topbeat']['release']}" : node['topbeat']['version']
 
 case node['platform_family']
 when 'debian'
