@@ -35,6 +35,10 @@ describe 'topbeat::default' do
       expect(chef_run).to create_yum_repository('beats')
     end
 
+    it 'add yum_version_lock topbeat' do
+      expect(chef_run).to update_yum_version_lock('topbeat')
+    end
+
     include_examples 'topbeat'
   end
 

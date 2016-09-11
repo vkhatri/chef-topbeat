@@ -50,9 +50,11 @@ when 'rhel'
     action node['topbeat']['yum']['action']
   end
 
-  package 'yum-plugin-versionlock'
-  execute 'yum versionlock clear topbeat'
-  execute "yum versionlock topbeat-#{version_string}"
+  yum_version_lock 'topbeat' do
+    version node['topbeat']['version']
+    release node['topbeat']['release']
+    action :update
+  end
 end
 
 package 'topbeat' do
