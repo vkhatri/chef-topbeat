@@ -60,5 +60,4 @@ end
 package 'topbeat' do
   version version_string
   options node['platform_family'] == 'rhel' ? '' : '-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"'
-  allow_downgrade true if node['platform_family'] == 'rhel'
 end
