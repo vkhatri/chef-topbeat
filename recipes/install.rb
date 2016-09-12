@@ -57,7 +57,9 @@ when 'rhel'
   end
 end
 
-package 'topbeat' do
+package 'topbeat' do # ~FC009
   version version_string
   options node['platform_family'] == 'rhel' ? '' : '-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"'
+  flush_cache(:before => true)
+  allow_downgrade true
 end
