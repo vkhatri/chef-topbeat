@@ -3,6 +3,11 @@ topbeat CHANGELOG
 
 This file is used to list changes made in each version of the topbeat cookbook.
 
+0.1.6
+-----
+
+- Virender Khatri - fix for #18, failed to install pinned version on version change
+
 0.1.5
 -----
 
