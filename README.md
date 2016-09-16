@@ -1,7 +1,7 @@
 topbeat Cookbook
 ================
 
-[![Cookbook](http://img.shields.io/badge/cookbook-v0.1.6-green.svg)](https://github.com/vkhatri/chef-topbeat)[![Build Status](https://travis-ci.org/vkhatri/chef-topbeat.svg?branch=master)](https://travis-ci.org/vkhatri/chef-topbeat)
+[![Cookbook](http://img.shields.io/badge/cookbook-v0.1.7-green.svg)](https://github.com/vkhatri/chef-topbeat)[![Build Status](https://travis-ci.org/vkhatri/chef-topbeat.svg?branch=master)](https://travis-ci.org/vkhatri/chef-topbeat)
 
 This is a [Chef] cookbook to manage [Topbeat].
 
@@ -12,7 +12,7 @@ This is a [Chef] cookbook to manage [Topbeat].
 ## Most Recent Release
 
 ```
-cookbook 'topbeat', '~> 0.1.6'
+cookbook 'topbeat', '~> 0.1.7'
 ```
 
 ## From Git

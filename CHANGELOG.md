@@ -3,6 +3,17 @@ topbeat CHANGELOG
 
 This file is used to list changes made in each version of the topbeat cookbook.
 
+0.1.7
+-----
+
+- Virender Khatri - #19, include yum-plugin-versionlock only for rhel
+
+- Virender Khatri - updated kitchen spec
+
+- Virender Khatri - updated beats version to 1.3.1
+
+- Virender Khatri - restart topbeat service on package upgrade
+
 0.1.6
 -----
 
@@ -11,24 +22,24 @@ This file is used to list changes made in each version of the topbeat cookbook.
 0.1.5
 -----
 
-- Paul Morton - Support version pinning in deb and yum repos
+- Paul Morton - support version pinning in deb and yum repos
 
-- Virender Khatri - Updated travis to use ruby v2.2.2
+- Virender Khatri - updated travis to use ruby v2.2.2
 
-- Virender Khatri - Remove powershell cookbook dependency
+- Virender Khatri - remove powershell cookbook dependency
 
-- Virender Khatri - Updated topbeat version to v1.3.0
+- Virender Khatri - updated topbeat version to v1.3.0
 
 - Virender Khatri - use cookbook yum-plugin-versionlock instead
 
 0.1.3
 -----
 
-- Bob - Adding support for windows
+- Bob - adding support for windows
 
-- Bob - Add serverpec integration tests for all platforms
+- Bob - add serverpec integration tests for all platforms
 
-- Virender Khatri - Bump beats version to v1.2.3
+- Virender Khatri - bump beats version to v1.2.3
 
 0.1.2
 -----
@@ -38,7 +49,7 @@ This file is used to list changes made in each version of the topbeat cookbook.
 0.1.1
 -----
 
-- Jose Alberto - Bump version to 1.0.0-rc2 adn new defult config
+- Jose Alberto - bump version to 1.0.0-rc2 adn new defult config
 
 - Virender Khatri - #3, added travis ci
 
