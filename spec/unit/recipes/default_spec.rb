@@ -88,7 +88,7 @@ describe 'topbeat::default' do
     end
 
     it 'configure C:/opt/topbeat/topbeat.yml' do
-      expect(chef_run).to create_file('C:/opt/topbeat/topbeat-1.3.0-windows/topbeat.yml')
+      expect(chef_run).to create_file('C:/opt/topbeat/topbeat-1.3.1-windows/topbeat.yml')
     end
 
     it 'enable topbeat service' do

@@ -45,7 +45,9 @@ This cookbook was tested on Amazon & Ubuntu Linux and expected to work on other 
 ## Core Attributes
 
 
-* `default['topbeat']['version']` (default: `1.2.3`): topbeat version
+* `default['topbeat']['version']` (default: `1.3.1`): topbeat version
+
+* `default['topbeat']['release']` (default: `1`): topbeat release for yum package
 
 * `default['topbeat']['packages']` (default: `[]`): package dependencies
 
