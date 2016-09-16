@@ -24,7 +24,7 @@ platforms:
 
 suites:
   - name: default
-    require_chef_omnibus: 12.5.1
+    require_chef_omnibus: 12.14.60
     run_list:
       - recipe[topbeat::default]
     attributes:
