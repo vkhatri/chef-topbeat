@@ -62,4 +62,5 @@ package 'topbeat' do # ~FC009
   options node['platform_family'] == 'rhel' ? '' : '-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"'
   flush_cache(:before => true) if node['platform_family'] == 'rhel'
   allow_downgrade true if node['platform_family'] == 'rhel'
+  notifies :restart, 'service[topbeat]' if node['topbeat']['notify_restart'] && !node['topbeat']['disable_service']
 end
