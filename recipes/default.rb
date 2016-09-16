@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'yum-plugin-versionlock::default'
+include_recipe 'yum-plugin-versionlock::default' if node['platform'] == 'rhel'
 
 if node['platform'] == 'windows'
   include_recipe 'topbeat::install_windows'
